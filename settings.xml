@@ -43,6 +43,7 @@
     <con:setting id="FlowLayout">false</con:setting>
     <con:setting id="ErrorDetails">true</con:setting>
     <con:setting id="IncludeCoverage">true</con:setting>
+    <con:setting id="4f9acf67-e6d6-470c-9fd7-559757c59bb8fileName">Mocking</con:setting>
   </con:settings>
   <con:requirements/>
   <con:properties/>
@@ -73,7 +74,6 @@
   <con:jmsConnectionContainer/>
   <con:oAuth2ProfileContainer/>
   <con:oAuth1ProfileContainer/>
-  <con:reporting/>
   <con:beforeRunScript>import groovy.sql.Sql
 
 log.info "Establishing a Postgres Database Connection with RedayAPI" 
