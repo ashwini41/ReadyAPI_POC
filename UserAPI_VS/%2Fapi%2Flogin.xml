@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:restMockAction name="/api/login" method="POST" resourcePath="/api/login" id="c4fa86e1-7297-41d4-b296-a32c2a85a741" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="c4fa86e1-7297-41d4-b296-a32c2a85a741fileName">%2Fapi%2Flogin</con:setting>
+  </con:settings>
+  <con:defaultResponse>success</con:defaultResponse>
+  <con:dispatchStyle>QUERY_MATCH</con:dispatchStyle>
+  <con:dispatchConfig xsi:type="con:MockOperationQueryMatchDispatch" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:query>
+      <con:name>email</con:name>
+      <con:type>JSONPath</con:type>
+      <con:query>email</con:query>
+      <con:match>@@@@</con:match>
+      <con:response>fail</con:response>
+      <con:disabled>false</con:disabled>
+    </con:query>
+    <con:query>
+      <con:name>password</con:name>
+      <con:type>JSONPath</con:type>
+      <con:query>$['password']</con:query>
+      <con:match>###</con:match>
+      <con:response>fail</con:response>
+      <con:disabled>false</con:disabled>
+    </con:query>
+  </con:dispatchConfig>
+  <con:dispatchPath>def requestBody = mockRequest.getRequestContent()
+log.info "Request body: " + requestBody
+
+if(!requestBody.contains("eve.holt@reqres.in"))
+{
+    // return the name of the response you want to dispatch
+    //return "Response fail"
+    //log.info "yes"
+    return "fail"
+}</con:dispatchPath>
+  <con:dispatchXPath/>
+  <con:parameterDispatcherRuleContainer/>
+  <con:routeScript/>
+  <con:response name="success" id="a99d9a6a-2f1f-4aa8-a715-7a74ddcb9d09" httpResponseStatus="200" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200035a000a636f6d707265737365644c000b636f6d7072657373696f6e74003d4c636f6d2f657669776172652f736f617075692f696d706c2f737570706f72742f436f6d7072657373656456616c756524436f6d7072657373696f6e3b5b0004646174617400025b427870007e72003b636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c756524436f6d7072657373696f6e00000000000000001200007872000e6a6176612e6c616e672e456e756d000000000000000012000078707400044e4f4e4570" mediaType="application/json" encoding="utf-8" dataSource="">
+    <con:settings/>
+    <con:responseContent>{"token":"QpwL5tke4Pnpja7X4"}</con:responseContent>
+    <con:header>
+      <con:name>Server</con:name>
+      <con:value>cloudflare</con:value>
+    </con:header>
+    <con:header>
+      <con:name>CF-RAY</con:name>
+      <con:value>7aae117fd8f885ae-BOM</con:value>
+    </con:header>
+    <con:header>
+      <con:name>Access-Control-Allow-Origin</con:name>
+      <con:value>*</con:value>
+    </con:header>
+    <con:header>
+      <con:name>Connection</con:name>
+      <con:value>keep-alive</con:value>
+    </con:header>
+    <con:header>
+      <con:name>Date</con:name>
+      <con:value>Tue, 21 Mar 2023 02:00:44 GMT</con:value>
+    </con:header>
+    <con:header>
+      <con:name>Date</con:name>
+      <con:value>Mon, 20 Mar 2023 12:48:15 GMT</con:value>
+    </con:header>
+    <con:header>
+      <con:name>Via</con:name>
+      <con:value>1.1 vegur</con:value>
+    </con:header>
+    <con:header>
+      <con:name>CF-Cache-Status</con:name>
+      <con:value>DYNAMIC</con:value>
+    </con:header>
+    <con:header>
+      <con:name>NEL</con:name>
+      <con:value>{"success_fraction":0,"report_to":"cf-nel","max_age":604800}</con:value>
+    </con:header>
+    <con:header>
+      <con:name>ETag</con:name>
+      <con:value>W/"1d-lGCrvD6B7Qzk11+2C98+nGhhuec"</con:value>
+    </con:header>
+    <con:header>
+      <con:name>Report-To</con:name>
+      <con:value>{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=CGEamEauJxed0pWSpde85F6ETqHvVTQW8nkP%2BhzGdhKkBQuKnR3PluJFQcwa%2FIxwnI5OxOQWsldbRy5bdgwG%2BqnEDKyRunQaCTiml1VLw2DnWwaCJhJBOqP13g%3D%3D"}],"group":"cf-nel","max_age":604800}</con:value>
+    </con:header>
+    <con:header>
+      <con:name>X-Powered-By</con:name>
+      <con:value>Express</con:value>
+    </con:header>
+  </con:response>
+  <con:response name="fail" id="1b2360d4-a75d-42ac-82b3-60579357c058" httpResponseStatus="404" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200035a000a636f6d707265737365644c000b636f6d7072657373696f6e74003d4c636f6d2f657669776172652f736f617075692f696d706c2f737570706f72742f436f6d7072657373656456616c756524436f6d7072657373696f6e3b5b0004646174617400025b427870007e72003b636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c756524436f6d7072657373696f6e00000000000000001200007872000e6a6176612e6c616e672e456e756d000000000000000012000078707400044e4f4e4570" dataSource="" mediaType="application/json">
+    <con:settings/>
+    <con:responseContent>Email address and passsword is not given correctly</con:responseContent>
+  </con:response>
+</con:restMockAction>

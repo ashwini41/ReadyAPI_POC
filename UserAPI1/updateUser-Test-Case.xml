@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="63fa7c68-30da-44a6-9907-965a5d41df66" discardOkResults="false" failOnError="false" failTestCaseOnErrors="false" keepSession="false" name="updateUser Test Case" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>The test case generated for the REST resource [updateUser] located at [/api/users/2]</con:description>
+  <con:settings>
+    <con:setting id="63fa7c68-30da-44a6-9907-965a5d41df66fileName">updateUser-Test-Case</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="Request 1" id="97efa5a2-3028-4e14-9a25-a6318c3fd1a1">
+    <con:settings/>
+    <con:config service="UserAPI" resourcePath="/api/users/2" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Request 1" id="dab0cd81-909e-40f8-9360-4ac7f8ca12ec" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8089/</con:endpoint>
+        <con:request>{
+    "name": "morpheus",
+    "job": "zion resident"
+}</con:request>
+        <con:originalUri>http://localhost/api/users/2</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="8dc2a9ba-8111-4b59-97fe-2df56415fc5c" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>400</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="99378a09-56f1-4880-a8f4-b0a0cfb84224" discardOkResults="false" failOnError="false" failTestCaseOnErrors="false" keepSession="false" name="registerUser Test Case" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>The test case generated for the REST resource [registerUser] located at [/api/register]</con:description>
+  <con:settings>
+    <con:setting id="99378a09-56f1-4880-a8f4-b0a0cfb84224fileName">registerUser-Test-Case</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="registerUser" id="4dffe988-36cd-48b7-b3eb-028904902a37">
+    <con:settings/>
+    <con:config service="UserAPI" resourcePath="/api/register" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="registerUser" id="507cfb43-a9f0-4189-aab2-9cbd53420dd6" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8089/</con:endpoint>
+        <con:request>{
+    "email": "eve.holt@reqres.in",
+    "password": "pistol"
+}</con:request>
+        <con:originalUri>https://reqres.in/api/register</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="c19fafb4-fdae-4846-b6b9-8905355fbf88" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="registerUser_invalidData" id="a230b390-ddd4-4c3e-8c43-fbee9cdda31b">
+    <con:settings/>
+    <con:config service="UserAPI" resourcePath="/api/register" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="registerUser_invalidData" id="507cfb43-a9f0-4189-aab2-9cbd53420dd6" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8089/</con:endpoint>
+        <con:request>{
+    "email": "hurry@gmail.com",
+    "password": "3"
+}</con:request>
+        <con:originalUri>https://reqres.in/api/register</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="a6c41a59-a3f3-46ea-b75d-84e00c895bb7" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>404</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="dea4d854-91c7-4ec7-940f-76a93cf2c7be" name="UserAPI" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>The test suite generated for the REST service [UserAPI]</con:description>
+  <con:settings>
+    <con:setting id="dea4d854-91c7-4ec7-940f-76a93cf2c7befileName">UserAPI1</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:setupScript/>
+  <con:tearDownScript/>
+  <con:reportParameters/>
+</con:testSuite>

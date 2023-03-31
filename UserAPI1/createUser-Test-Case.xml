@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="d239432b-0ce3-46cf-bb12-dc38157745f4" discardOkResults="false" failOnError="false" failTestCaseOnErrors="false" keepSession="false" name="createUser Test Case" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>The test case generated for the REST resource [createUser] located at [/api/users]</con:description>
+  <con:settings>
+    <con:setting id="d239432b-0ce3-46cf-bb12-dc38157745f4fileName">createUser-Test-Case</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="createUser" id="6acbea45-1535-4a36-a1c3-8c1028de39af">
+    <con:settings/>
+    <con:config service="UserAPI" resourcePath="/api/users" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="createUser" id="46bd4528-2cf7-4406-9520-804ca70349c8" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Content-type" value="application/json" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8089/</con:endpoint>
+        <con:request>{
+    "name": "morpheus",
+    "job": "leader"
+}</con:request>
+        <con:originalUri>https://reqres.in/api/users</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="6bb9b373-5833-4374-be71-c1f6ca1052d3" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="createuser_invalidData" id="00b6de07-dbfe-464d-8026-f85b884b8dfb">
+    <con:settings/>
+    <con:config service="UserAPI" resourcePath="/api/users" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="createuser_invalidData" id="46bd4528-2cf7-4406-9520-804ca70349c8" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Content-type" value="application/json" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8089/</con:endpoint>
+        <con:request>{
+    "name": "eve",
+    "job": "Doctor"
+}</con:request>
+        <con:originalUri>https://reqres.in/api/users</con:originalUri>
+        <con:assertion type="Response SLA Assertion" id="e176f5bc-a927-4302-83f4-f7e47375c002" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Valid HTTP Status Codes" id="000698cc-3e70-4a56-8996-6810dca001e5" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>400</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="createUser_InvalidHeader" id="8487cc5d-8dd3-4d9c-93ef-dda516be3802">
+    <con:settings/>
+    <con:config service="UserAPI" resourcePath="/api/users" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="createUser_InvalidHeader" id="46bd4528-2cf7-4406-9520-804ca70349c8" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="Content-type" value="form-data" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8089/</con:endpoint>
+        <con:request>{
+    "name": "morpheus",
+    "job": "leader"
+}</con:request>
+        <con:originalUri>https://reqres.in/api/users</con:originalUri>
+        <con:assertion type="Response SLA Assertion" id="62d9d1c3-34e3-427c-9400-11025d9efb19" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Valid HTTP Status Codes" id="58828e74-b0f1-4b19-b299-3ae6cb4e3ad7" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>400</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

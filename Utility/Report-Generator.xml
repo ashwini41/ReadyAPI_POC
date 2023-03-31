@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="a0e68889-4ac6-4dc2-91a0-a3a3d3bffe66" discardOkResults="false" failOnError="false" failTestCaseOnErrors="false" keepSession="false" name="Report Generator" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="a0e68889-4ac6-4dc2-91a0-a3a3d3bffe66fileName">Report-Generator</con:setting>
+  </con:settings>
+  <con:testStep type="groovy" name="Groovy Script" id="46178a2c-f98e-42ac-8f7f-0b3b7957a9e6">
+    <con:settings/>
+    <con:config>
+      <script>def testSuiteName = "MyTestSuite"
+def reportType = "HTML"
+def reportFilePath = "/Users/ashwini.lohar/Desktop/Reports/TestReport.html"
+def autoOpen = true
+def command = " /Applications/ReadyAPI-3.40.2.app/Contents/Resources/app/bin/testrunner.sh -s ${testSuiteName} -R ${reportType} -f ${reportFilePath} "
+def process = command.execute()
+process.waitFor()
+
+ /*
+
+if (process.exitValue() != 0) {
+    log.error("Failed to generate the test report: ${process.err.text}")
+} else {
+    log.info("Test report generated successfully: ${reportFilePath}")
+}
+
+*/</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

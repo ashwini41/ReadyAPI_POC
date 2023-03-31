@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="ErrorCreateUser" path="/api/register" id="fa7d57bd-f471-402e-a1dd-90c2a2d932a3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="fa7d57bd-f471-402e-a1dd-90c2a2d932a3fileName">ErrorCreateUser</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="Method 1" id="80fdecaf-30c1-473a-8ba6-9716fbb31e06" method="POST">
+    <con:settings/>
+    <con:parameters/>
+    <con:request name="ErrorCreateUser" id="cd442cd4-a6bb-43b3-bc77-813bdc513005" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://reqres.in/</con:endpoint>
+      <con:request/>
+      <con:originalUri>http://localhost/ap/register</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

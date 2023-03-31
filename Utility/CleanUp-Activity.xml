@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="dd58fd8b-d395-42fa-9e6f-fd173ed575c1" discardOkResults="false" failOnError="false" failTestCaseOnErrors="false" keepSession="false" name="CleanUp Activity" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="dd58fd8b-d395-42fa-9e6f-fd173ed575c1fileName">CleanUp-Activity</con:setting>
+  </con:settings>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="616ce73d-f9ee-4882-b7d6-77652bda922b" discardOkResults="false" failOnError="false" failTestCaseOnErrors="false" keepSession="false" name="getAlluser Test Case" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>The test case generated for the REST resource [getAlluser] located at [/api/users?page=2]</con:description>
+  <con:settings>
+    <con:setting id="616ce73d-f9ee-4882-b7d6-77652bda922bfileName">getAlluser-Test-Case</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="getUser" id="06c2a73b-5fa3-4298-a60c-c073c7a6fece">
+    <con:settings/>
+    <con:config service="UserAPI" resourcePath="/api/users/" methodName="getUser" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="getUser" id="91eee66b-872a-4055-95c5-61714e4dcb2f" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8089/</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://reqres.in/api/users</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="d7c7cd98-9443-4c6f-b537-4869ce8e2d19" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <con:entry key="page" value="2"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>page</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="REST Request" id="c67e3efd-e05d-49c4-8b40-c31a874f88e7">
+    <con:settings/>
+    <con:config service="UserAPI" resourcePath="/api/users/" methodName="getUser" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="91eee66b-872a-4055-95c5-61714e4dcb2f" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://reqres.in</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://reqres.in/api/users</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:parameterOrder>
+          <con:entry>page</con:entry>
+        </con:parameterOrder>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

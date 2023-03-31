@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="a1e2f880-9bd9-4256-a957-a9143942b0d4" name="Utility" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="a1e2f880-9bd9-4256-a957-a9143942b0d4fileName">Utility</con:setting>
+  </con:settings>
+  <con:runType>SEQUENTIAL</con:runType>
+  <con:properties/>
+  <con:setupScript>import groovy.sql.Sql
+
+log.info "Establishing a Postgres Database Connection with RedayAPI" 
+
+def dbUrl      = "jdbc:postgresql://localhost/postgres"
+def dbUser     = "ashwini.lohar"
+def dbDriver   = "org.postgresql.Driver"
+
+// Register the Postgres JDBC driver – required for Groovy to send requests to the database
+      com.eviware.soapui.support.GroovyUtils.registerJdbcDriver(dbDriver)
+
+// Connect to the SQL instance
+def sql = Sql.newInstance(dbUrl, dbUser, dbDriver)
+
+def query = "select email, password from credentials"
+  def credentials = sql.firstRow(query)
+    log.info credentials</con:setupScript>
+  <con:reportParameters/>
+</con:testSuite>

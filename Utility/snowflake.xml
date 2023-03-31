@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="efe8c786-1611-4a7c-a75d-123c60fe1aa6" discardOkResults="false" failOnError="false" failTestCaseOnErrors="false" keepSession="false" name="snowflake" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="efe8c786-1611-4a7c-a75d-123c60fe1aa6fileName">snowflake</con:setting>
+  </con:settings>
+  <con:testStep type="datasource" name="Data Source" id="c93ae770-edea-46ca-a365-ca2bddc91401">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JDBC">
+        <con:configuration>
+          <driver/>
+          <connstr/>
+          <pass/>
+          <Connection>&lt;None></Connection>
+          <query/>
+          <fetchSize/>
+          <stored-procedure>false</stored-procedure>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

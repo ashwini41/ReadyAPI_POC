@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="4b02c33b-15a6-42d7-b2ac-894028413478" discardOkResults="false" failOnError="false" failTestCaseOnErrors="false" keepSession="false" name="getResource Test Case" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>The test case generated for the REST resource [getResource] located at [/api/unknown]</con:description>
+  <con:settings>
+    <con:setting id="4b02c33b-15a6-42d7-b2ac-894028413478fileName">getResource-Test-Case</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="Request 1" id="feffe284-f2a3-4453-ab3a-41f06c6697aa">
+    <con:settings/>
+    <con:config service="UserAPI" resourcePath="/api/unknown" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Request 1" id="060af14a-1163-4e62-b3e1-7268144e58f2" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8089/</con:endpoint>
+        <con:request/>
+        <con:originalUri>https://reqres.in/api/unknown</con:originalUri>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

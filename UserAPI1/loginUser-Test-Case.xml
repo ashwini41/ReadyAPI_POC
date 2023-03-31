@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="3c38a78e-608a-46fd-8b12-0d442667b5c0" discardOkResults="false" failOnError="false" failTestCaseOnErrors="false" keepSession="false" name="loginUser Test Case" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>The test case generated for the REST resource [loginUser] located at [/api/login]</con:description>
+  <con:settings>
+    <con:setting id="3c38a78e-608a-46fd-8b12-0d442667b5c0fileName">loginUser-Test-Case</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="Login_validData" id="57a65f45-252d-4350-bb5f-03e14e6d9667">
+    <con:settings/>
+    <con:config service="UserAPI" resourcePath="/api/login" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Login_validData" id="17a6abba-40d2-4402-8861-3ca22b9fbf9b" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8089/</con:endpoint>
+        <con:request>{
+    "email":"eve.holt@reqres.in",
+    "password": "cityslicka"
+}</con:request>
+        <con:originalUri>https://reqres.in/api/login</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="ede30e30-500a-4d8c-b375-847b5debfb87" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:parameterOrder/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Login_invalidData" id="c6ef070c-9434-4d3d-95b4-86114389d84e">
+    <con:settings/>
+    <con:config service="UserAPI" resourcePath="/api/login" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Login_invalidData" id="17a6abba-40d2-4402-8861-3ca22b9fbf9b" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;con:entry key="content-type" value="json" xmlns:con="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8089/</con:endpoint>
+        <con:request>{
+    "email":"@@@",
+    "password": "###"
+}</con:request>
+        <con:originalUri>https://reqres.in/api/login</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="689c212a-ae47-45ad-be18-17476163d849" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>404</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Response SLA Assertion" id="285c4b9b-267a-462f-9f69-e64826a31d68" name="Response SLA">
+          <con:configuration>
+            <SLA>200</SLA>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:parameterOrder/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

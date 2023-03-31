@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:restMockAction name="/api/users/" method="GET" resourcePath="/api/users/" id="fc41d483-242a-4392-a3ee-2f86b280a46c" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="fc41d483-242a-4392-a3ee-2f86b280a46cfileName">%2Fapi%2Fusers%2F</con:setting>
+  </con:settings>
+  <con:defaultResponse>SuccessResponse</con:defaultResponse>
+  <con:dispatchStyle>SCRIPT</con:dispatchStyle>
+  <con:dispatchConfig xsi:type="con:MockOperationQueryMatchDispatch" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:query>
+      <con:name>page</con:name>
+      <con:type>JSONPath</con:type>
+      <con:query>page</con:query>
+      <con:match>2</con:match>
+      <con:response>Response 1</con:response>
+    </con:query>
+  </con:dispatchConfig>
+  <con:dispatchPath>def requestPath = mockRequest.getPath()
+log.info "Path: "+ requestPath
+
+if( !requestPath.equals("/api/users/"))
+{
+	return "invalidPath"
+	
+	}</con:dispatchPath>
+  <con:dispatchXPath/>
+  <con:parameterDispatcherRuleContainer/>
+  <con:routeScript/>
+  <con:response name="SuccessResponse" id="6c781bfb-aee3-4cc9-a5e9-ee4c38b5f655" httpResponseStatus="200" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200035a000a636f6d707265737365644c000b636f6d7072657373696f6e74003d4c636f6d2f657669776172652f736f617075692f696d706c2f737570706f72742f436f6d7072657373656456616c756524436f6d7072657373696f6e3b5b0004646174617400025b427870007e72003b636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c756524436f6d7072657373696f6e00000000000000001200007872000e6a6176612e6c616e672e456e756d000000000000000012000078707400044e4f4e4570" mediaType="application/json" dataSource="">
+    <con:settings/>
+    <con:responseContent>"page": 2,
+	"per_page": 6,
+	"total": 12,
+	"total_pages": 2,
+	"data": [{
+			"id": 7,
+			"email": "michael.lawson@reqres.in",
+			"first_name": "Michael",
+			"last_name": "Lawson",
+			"avatar": "https://reqres.in/img/faces/7-image.jpg"
+		},
+		{
+			"id": 8,
+			"email": "michael.lawson@reqres.in",
+			"first_name": "Michael",
+			"last_name": "Lawson",
+			"avatar": "https://reqres.in/img/faces/7-image.jpg"
+		}
+	]
+
+}</con:responseContent>
+    <con:header>
+      <con:name>Date</con:name>
+      <con:value>Mon, 20 Mar 2023 16:29:49 GMT</con:value>
+    </con:header>
+  </con:response>
+  <con:response name="invalidPath" id="1d74fa20-32df-4985-a4e8-a9d0f815fc2b" httpResponseStatus="404" compressedBodyContent="aced00057372002f636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c7565000b8b02c748eeab0200035a000a636f6d707265737365644c000b636f6d7072657373696f6e74003d4c636f6d2f657669776172652f736f617075692f696d706c2f737570706f72742f436f6d7072657373656456616c756524436f6d7072657373696f6e3b5b0004646174617400025b427870007e72003b636f6d2e657669776172652e736f617075692e696d706c2e737570706f72742e436f6d7072657373656456616c756524436f6d7072657373696f6e00000000000000001200007872000e6a6176612e6c616e672e456e756d000000000000000012000078707400044e4f4e4570" mediaType="application/json" encoding="utf-8" dataSource="">
+    <con:settings/>
+    <con:responseContent>URL entered is not correct , expected '/' after users</con:responseContent>
+    <con:header>
+      <con:name>Server</con:name>
+      <con:value>cloudflare</con:value>
+    </con:header>
+    <con:header>
+      <con:name>CF-RAY</con:name>
+      <con:value>7ab2d8397b842e88-BOM</con:value>
+    </con:header>
+    <con:header>
+      <con:name>Access-Control-Allow-Origin</con:name>
+      <con:value>*</con:value>
+    </con:header>
+    <con:header>
+      <con:name>Connection</con:name>
+      <con:value>keep-alive</con:value>
+    </con:header>
+    <con:header>
+      <con:name>Date</con:name>
+      <con:value>Tue, 21 Mar 2023 02:42:58 GMT</con:value>
+    </con:header>
+    <con:header>
+      <con:name>Via</con:name>
+      <con:value>1.1 vegur</con:value>
+    </con:header>
+    <con:header>
+      <con:name>Accept-Ranges</con:name>
+      <con:value>bytes</con:value>
+    </con:header>
+    <con:header>
+      <con:name>CF-Cache-Status</con:name>
+      <con:value>REVALIDATED</con:value>
+    </con:header>
+    <con:header>
+      <con:name>Etag</con:name>
+      <con:value>W/"3e4-2RLXvr5wTg9YQ6aH95CkYoFNuO8"</con:value>
+    </con:header>
+    <con:header>
+      <con:name>Cache-Control</con:name>
+      <con:value>max-age=14400</con:value>
+    </con:header>
+    <con:header>
+      <con:name>NEL</con:name>
+      <con:value>{"success_fraction":0,"report_to":"cf-nel","max_age":604800}</con:value>
+    </con:header>
+    <con:header>
+      <con:name>Report-To</con:name>
+      <con:value>{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=L2X2EzebTUWTdE3VHeP89eWphTS%2F%2FS%2Fy3CIGgJD3Wfh43r04z%2BGoIWoiWh55ykBMVwFzai5UaglitafaUYgFuiVmpmBrHeaaufRaNj5iwvZLvbkuYpjpjvP5yg%3D%3D"}],"group":"cf-nel","max_age":604800}</con:value>
+    </con:header>
+    <con:header>
+      <con:name>X-Powered-By</con:name>
+      <con:value>Express</con:value>
+    </con:header>
+  </con:response>
+</con:restMockAction>
