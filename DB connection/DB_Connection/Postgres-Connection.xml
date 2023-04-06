@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="a8c0d887-069d-412d-b49f-98079ad3391c" discardOkResults="false" failOnError="false" failTestCaseOnErrors="false" keepSession="false" name="Postgres Connection" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="a8c0d887-069d-412d-b49f-98079ad3391cfileName">Postgres-Connection</con:setting>
+  </con:settings>
+  <con:testStep type="datasource" name="Data Source DB" id="1c277830-054c-4852-921d-1622cb73c4c4">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JDBC">
+        <con:configuration>
+          <driver>org.postgresql.Driver</driver>
+          <connstr>jdbc:postgresql://localhost:5432/postgres?user=ashwini.lohar&amp;password=PASS_VALUE</connstr>
+          <pass/>
+          <Connection>postgresql( Default environment )</Connection>
+          <query>Select credentials.email as credentials_email, credentials.password as credentials_password
+From credentials</query>
+          <fetchSize>1</fetchSize>
+          <stored-procedure>false</stored-procedure>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:preload>true</con:preload>
+      <con:property>credentials_email</con:property>
+      <con:property>credentials_password</con:property>
+      <con:startRow>0</con:startRow>
+      <con:endRow>3</con:endRow>
+      <con:recordsPerIteration>1</con:recordsPerIteration>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:trimValues>false</con:trimValues>
+      <con:entitizeValues>false</con:entitizeValues>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:expandProperties>false</con:expandProperties>
+      <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Groovy Script" id="67eeee03-3276-4b19-a506-79ffd5258b2a">
+    <con:settings/>
+    <con:config>
+      <script>import groovy.sql.Sql
+
+log.info "Establishing a Postgres Database Connection with RedayAPI" 
+
+def dbUrl      = "jdbc:postgresql://localhost/postgres"
+def dbUser     = "ashwini.lohar"
+def dbDriver   = "org.postgresql.Driver"
+
+// Register the Postgres JDBC driver – required for Groovy to send requests to the database
+      com.eviware.soapui.support.GroovyUtils.registerJdbcDriver(dbDriver)
+
+// Connect to the SQL instance
+def sql = Sql.newInstance(dbUrl, dbUser, dbDriver)
+
+def query = "select email, password from credentials"
+  def credentials = sql.firstRow(query)
+    log.info credentials</script>
+    </con:config>
+  </con:testStep>
+  <con:setupScript/>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

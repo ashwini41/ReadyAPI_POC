@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="a74b90f2-7e53-45b2-b255-b3faf7db1257" discardOkResults="false" failOnError="false" failTestCaseOnErrors="false" keepSession="false" name="MYSQL connection" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="a74b90f2-7e53-45b2-b255-b3faf7db1257fileName">MYSQL-connection</con:setting>
+  </con:settings>
+  <con:testStep type="datasource" name="Data Source" id="64a9af78-ec85-469f-bb1e-eb491ab362a6">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JDBC">
+        <con:configuration>
+          <driver>com.mysql.jdbc.Driver</driver>
+          <connstr>jdbc:mysql://127.0.0.1:3306/user?user=root&amp;password=PASS_VALUE</connstr>
+          <pass/>
+          <Connection>mysql( Default environment )</Connection>
+          <query>select EMAIL, PASSWORD From Credentials;</query>
+          <fetchSize/>
+          <stored-procedure>false</stored-procedure>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>EMAIL</con:property>
+      <con:property>PASSWORD</con:property>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Groovy Script" id="8acd1b07-d336-4de0-ba13-299e55b9e8cb" disabled="true">
+    <con:settings/>
+    <con:config>
+      <script>import groovy.sql.Sql
+
+// Set up database connection properties
+def url = 'jdbc:mysql://localhost:3306/user' /* IMPORTANT: must start with jdbc:mysql:// */
+def user = 'root'
+def driver = 'com.mysql.jdbc.Driver'
+
+// Register the MySQL JDBC driver – required for Groovy to send requests to the database
+com.eviware.soapui.support.GroovyUtils.registerJdbcDriver(driver)
+
+// Connect to the SQL instance
+def sql = Sql.newInstance(url, user, driver)
+
+// Use the SQL instance
+// ...
+
+def query = "select email, password from credentials"
+  def credentials = sql.firstRow(query)
+    log.info credentials
+
+// Close the SQL instance
+sql.close()</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="REST Request" id="37852d35-1f8d-4830-86f4-214467af920a">
+    <con:settings/>
+    <con:config service="UserAPI" resourcePath="/api/login" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="17a6abba-40d2-4402-8861-3ca22b9fbf9b" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://reqres.in/</con:endpoint>
+        <con:request>{
+    "email": "${Data Source#EMAIL}",
+    "password": "${Data Source#PASSWORD}"
+}</con:request>
+        <con:originalUri>https://reqres.in/api/login</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="2c14fa9d-8830-443e-b6b8-9b1ca6209102" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:parameterOrder/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

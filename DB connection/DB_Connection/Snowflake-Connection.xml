@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="efe8c786-1611-4a7c-a75d-123c60fe1aa6" discardOkResults="false" failOnError="false" failTestCaseOnErrors="false" keepSession="false" name="Snowflake Connection" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="efe8c786-1611-4a7c-a75d-123c60fe1aa6fileName">Snowflake-Connection</con:setting>
+  </con:settings>
+  <con:testStep type="datasource" name="Data Source" id="c93ae770-edea-46ca-a365-ca2bddc91401">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JDBC">
+        <con:configuration>
+          <driver>net.snowflake.client.jdbc.SnowflakeDriver</driver>
+          <connstr>jdbc:snowflake://wrocnnr-mx25934.snowflakecomputing.com?db=UESRS&amp;warehouse=COMPUTE_WH&amp;schema=PUBLIC&amp;user=ASHWINI&amp;PASSWORD=Snow@3333</connstr>
+          <pass/>
+          <Connection>snowflake( Default environment )</Connection>
+          <query>select EMAIL, PASSWORD From Credentials;</query>
+          <fetchSize/>
+          <stored-procedure>false</stored-procedure>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>EMAIL</con:property>
+      <con:property>PASSWORD</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:stopDatasourceExhausted>false</con:stopDatasourceExhausted>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Groovy Script" id="6bc55247-9250-421e-b6e0-ebff31f923a2">
+    <con:settings/>
+    <con:config>
+      <script>import groovy.sql.Sql
+
+// Set up database connection properties
+def url = 'jdbc:snowflake://wrocnnr-mx25934.snowflakecomputing.com?db=UESRS&amp;warehouse=COMPUTE_WH&amp;schema=PUBLIC' /* IMPORTANT: must start with jdbc:mysql:// */
+def user = 'ASHWINI'
+def password = 'Snow@3333'
+def driver = 'net.snowflake.client.jdbc.SnowflakeDriver'
+
+// Register the MySQL JDBC driver – required for Groovy to send requests to the database
+com.eviware.soapui.support.GroovyUtils.registerJdbcDriver(driver)
+
+// Connect to the SQL instance
+def sql = Sql.newInstance(url, user, password, driver)
+
+// Use the SQL instance
+// ...
+
+def query = "select email, password from credentials"
+  def credentials = sql.firstRow(query)
+    log.info credentials
+
+// Close the SQL instance
+sql.close()</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

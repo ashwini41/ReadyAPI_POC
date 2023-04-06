@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="updateUser" path="/api/users/2" id="faadf1e0-0772-4581-8623-9be99cb097d4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="faadf1e0-0772-4581-8623-9be99cb097d4fileName">updateUser</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="Method 1" id="37bf1045-83c3-4fba-9b72-253576ca3728" method="PUT">
+    <con:settings/>
+    <con:parameters/>
+    <con:request name="Request 1" id="dab0cd81-909e-40f8-9360-4ac7f8ca12ec" mediaType="application/json" postQueryString="false">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://reqres.in/</con:endpoint>
+      <con:request>{
+    "name": "morpheus",
+    "job": "zion resident"
+}</con:request>
+      <con:originalUri>https://reqres.in/api/users/2</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

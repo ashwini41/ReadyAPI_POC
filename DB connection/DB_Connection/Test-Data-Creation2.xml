@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="02d34d2e-2593-47f1-a750-bc3beb35aa54" discardOkResults="false" failOnError="false" failTestCaseOnErrors="false" keepSession="false" name="Test Data Creation2" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="02d34d2e-2593-47f1-a750-bc3beb35aa54fileName">Test-Data-Creation2</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="REST Request" id="cac36d71-25a6-408b-b504-c36ee40a5ce7">
+    <con:settings/>
+    <con:config service="UserAPI" resourcePath="/api/login" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="17a6abba-40d2-4402-8861-3ca22b9fbf9b" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://reqres.in/</con:endpoint>
+        <con:request>{
+    "email": "${#[DB_Connection#Snowflake Connection#Data Source]#EMAIL}",
+    "password": "${#[DB_Connection#Snowflake Connection#Data Source]#PASSWORD}"
+}</con:request>
+        <con:originalUri>https://reqres.in/api/login</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="842c652c-6acc-4d1b-886b-6af3ea5cef1b" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:parameterOrder/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

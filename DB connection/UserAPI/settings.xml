@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:RestService" id="3034604c-230f-461f-9694-d566b2897bd0" name="UserAPI" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="3034604c-230f-461f-9694-d566b2897bd0fileName">UserAPI</con:setting>
+  </con:settings>
+  <con:endpoints>
+    <con:endpoint>http://localhost:8088/</con:endpoint>
+    <con:endpoint>http://localhost:8089/</con:endpoint>
+    <con:endpoint>https://reqres.in/</con:endpoint>
+  </con:endpoints>
+</con:interface>

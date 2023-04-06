@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="1c3071ab-52ba-4ddd-be75-9f7a1fe2c090" discardOkResults="false" failOnError="false" failTestCaseOnErrors="false" keepSession="false" name="Test Data Creation" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="1c3071ab-52ba-4ddd-be75-9f7a1fe2c090fileName">Test-Data-Creation</con:setting>
+  </con:settings>
+  <con:testStep type="restrequest" name="REST Request" id="2ac681f2-db67-46ac-9ef6-a7201878806e">
+    <con:settings/>
+    <con:config service="UserAPI" resourcePath="/api/login" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="17a6abba-40d2-4402-8861-3ca22b9fbf9b" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>https://reqres.in/</con:endpoint>
+        <con:request>{
+    "email" : "${#[DB_Connection#Postgres Connection#Data Source DB]#credentials_email}",
+    "password" : "${#[DB_Connection#Postgres Connection#Data Source DB]#credentials_password}"
+}</con:request>
+        <con:originalUri>https://reqres.in/api/login</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="bf553c40-7a13-4823-b965-4bbc86a72e7f" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters/>
+        <con:parameterOrder/>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>
